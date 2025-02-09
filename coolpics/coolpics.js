@@ -54,3 +54,5 @@ const gallery = document.querySelector(".gallery");
 if (gallery) {
   gallery.addEventListener("click", viewHandler);
 }
+
+

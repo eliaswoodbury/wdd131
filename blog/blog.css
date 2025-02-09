@@ -1,0 +1,129 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+/* General Styles */
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #fff;
+    color: #473144;
+    margin: 0;
+    padding: 0;
+}
+
+/* Headings */
+h1 {
+    font-family: 'Lora', serif;
+    text-align: center;
+    color: #473144;
+    margin: 20px 0;
+}
+h2 {
+    font-family: 'Lora', serif;
+    color: #AF1B3F;
+    margin-bottom: 10px;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #AF1B3F;
+}
+a:hover {
+    color: #EFC69B;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 2px solid #EFC69B;
+}
+
+/* Navigation */
+nav > ul {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 30px;
+    list-style: none;
+    justify-content: end;
+    padding: 0;
+    margin: 0;
+}
+nav > ul li {
+    font-size: 18px;
+}
+
+/* Main Layout Grid */
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Articles */
+article {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #EFC69B;
+}
+article img {
+    max-width: 100px;
+    border-radius: 5px;
+}
+article h2 {
+    margin: 0;
+}
+article p {
+    margin: 5px 0 0;
+}
+
+/* Filters */
+#filters {
+    background-color: #EFC69B;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #473144;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #473144;
+    color: white;
+}
+
+
+/* Header */
+h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+}
+
+/* Navigation */
+nav {
+    border-top: 2px solid #EFC69B;
+    border-bottom: 2px solid #EFC69B;
+
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+nav > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+nav > ul > li {
+    font-size: 1.25rem;
+}
