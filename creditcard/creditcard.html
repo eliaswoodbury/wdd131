@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Credit Card Payment</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="creditcard.css">
+  <meta name="author" content="Elias Woodbury">
+  <meta name="Credit Card Site" content="Site to put your credit card information in.">
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,300" rel="stylesheet">
+  <script src="https://use.fontawesome.com/f1e0bf0cbc.js"></script>
+</head>
+<body>
+  <!-- Success and error messages -->
+  <div id="card-success" class="hidden">
+    <i class="fa fa-check"></i>
+    <p>Payment Successful!</p>
+  </div>
+  <div id="form-errors" class="hidden">
+    <i class="fa fa-exclamation-triangle"></i>
+    <p id="card-error">Card error</p>
+  </div>
+
+  <!-- Credit Card Form Container -->
+  <form id="form-container">
+    <!-- Card Front -->
+    <div id="card-front">
+      <div id="shadow"></div>
+      <div id="image-container">
+        <span id="amount">Total: <strong>$99</strong></span>
+        <span id="card-image">
+          <!-- This icon will update based on card type -->
+        </span>
+      </div>
+      <label for="card-number">Card Number</label>
+      <input type="text" id="card-number" placeholder="1234 5678 9101 1112" required minlength="16" maxlength="16">
+      
+      <div id="cardholder-container">
+        <label for="card-holder">Card Holder</label>
+        <input type="text" id="card-holder" placeholder="e.g. John Doe" required>
+      </div>
+      
+      <div id="exp-container">
+        <label for="card-month">Expiration</label>
+        <input type="text" id="card-month" placeholder="MM" required minlength="2" maxlength="2">
+        <input type="text" id="card-year" placeholder="YY" required minlength="2" maxlength="2">
+      </div>
+      
+      <div id="cvc-container">
+        <label for="card-cvc">CVC/CVV</label>
+        <input type="text" id="card-cvc" placeholder="123" required minlength="3" maxlength="4">
+        <p>Last 3 or 4 digits</p>
+      </div>
+    </div>
+    
+    <!-- Card Back -->
+    <div id="card-back">
+      <div id="card-stripe"></div>
+    </div>
+    
+    <!-- Hidden field for the Stripe token -->
+    <input type="hidden" id="card-token" name="card-token">
+    <!-- Submit Button -->
+    <button type="button" id="card-btn">Submit</button>
+  </form>
+
+  <!-- Optional: jQuery and Stripe.js for form processing -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://js.stripe.com/v2/"></script>
+  <script>
+    $(document).ready(function() {
+      // Set your Stripe publishable key
+      Stripe.setPublishableKey('pk_test_9D43kM3d2vEHZYzPzwAblYXl');
+      
+      // Function to update the card icon based on number input
+      function checkCardType() {
+        var cardNumber = $('#card-number').val();
+        var cardType = Stripe.card.cardType(cardNumber);
+        var iconHTML = '';
+        switch(cardType) {
+          case 'Visa':
+            iconHTML = '<i class="fa fa-cc-visa"></i>';
+            break;
+          case 'MasterCard':
+            iconHTML = '<i class="fa fa-cc-mastercard"></i>';
+            break;
+          case 'American Express':
+            iconHTML = '<i class="fa fa-cc-amex"></i>';
+            break;
+          case 'Discover':
+            iconHTML = '<i class="fa fa-cc-discover"></i>';
+            break;
+          default:
+            iconHTML = '<i class="fa fa-credit-card"></i>';
+        }
+        $('#card-image').html(iconHTML);
+      }
+      
+      $('#card-number').on('input', function() {
+        checkCardType();
+      });
+      
+      // Check for empty fields and mark them as invalid
+      function findEmpty() {
+        var emptyInputs = $('#form-container input').filter(function() {
+          return $(this).val().trim() === '';
+        });
+        emptyInputs.addClass('invalid');
+      }
+      
+      // Handle form submission
+      $('#card-btn').on('click', function(e) {
+        e.preventDefault();
+        $('input').removeClass('invalid');
+        findEmpty();
+        
+        if ($('#form-container input.invalid').length === 0) {
+          var cardNumber = $('#card-number').val();
+          var cardMonth = $('#card-month').val();
+          var cardYear = $('#card-year').val();
+          var cardCVC = $('#card-cvc').val();
+          var cardHolder = $('#card-holder').val();
+          
+          Stripe.card.createToken({
+            number: cardNumber,
+            cvc: cardCVC,
+            exp_month: cardMonth,
+            exp_year: cardYear,
+            name: cardHolder
+          }, function(status, response) {
+            if (response.error) {
+              $('#form-errors').removeClass('hidden')
+                .find('#card-error').text(response.error.message);
+            } else {
+              $('#form-errors').addClass('hidden');
+              $('#card-success').removeClass('hidden');
+              $('#card-token').val(response.id);
+              // Optionally, submit the form or proceed further here.
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
