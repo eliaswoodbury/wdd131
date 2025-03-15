@@ -1,4 +1,3 @@
-// Recipe data with the provided images
 const recipes = [
     {
         name: "Apple Crisp",
@@ -44,74 +43,80 @@ const recipes = [
     }
 ];
 
-function createRecipeCard(recipe) {
-    const recipeCard = document.createElement('div');
-    recipeCard.className = 'recipe-card';
-
-    const img = document.createElement('img');
-    img.src = recipe.image;
-    img.alt = `${recipe.name} image`;
-
-    const content = document.createElement('div');
-    content.className = 'content';
-
-    const tags = document.createElement('div');
-    tags.className = 'tags';
-    recipe.tags.forEach(tag => {
-        const tagSpan = document.createElement('span');
-        tagSpan.className = 'tag';
-        tagSpan.textContent = tag;
-        tags.appendChild(tagSpan);
-    });
-
-    const name = document.createElement('h2');
-    name.textContent = recipe.name;
-
-    const rating = document.createElement('span');
-    rating.className = 'rating';
-    rating.setAttribute('role', 'img');
-    rating.setAttribute('aria-label', `Rating: ${recipe.rating} out of 5 stars`);
-    for (let i = 1; i <= 5; i++) {
-        const star = document.createElement('span');
-        star.setAttribute('aria-hidden', 'true');
-        star.className = i <= recipe.rating ? 'icon-star' : 'icon-star-empty';
-        star.innerHTML = i <= recipe.rating ? '⭐' : '☆';
-        rating.appendChild(star);
-    }
-
-    content.appendChild(tags);
-    content.appendChild(name);
-    content.appendChild(rating);
-
-    recipeCard.appendChild(img);
-    recipeCard.appendChild(content);
-
-    return recipeCard;
+// Random Functions
+function getRandomNumber(max) {
+    return Math.floor(Math.random() * max);
 }
 
-// Populate recipe cards and handle search
-document.addEventListener('DOMContentLoaded', () => {
-    const recipeContainer = document.getElementById('recipeContainer');
-    const searchInput = document.getElementById('search');
+function getRandomListEntry(array) {
+    const randomIndex = getRandomNumber(array.length);
+    return array[randomIndex];
+}
 
-    function displayRecipes(filteredRecipes) {
-        recipeContainer.innerHTML = '';
-        filteredRecipes.forEach(recipe => {
-            const card = createRecipeCard(recipe);
-            recipeContainer.appendChild(card);
-        });
+// Template Functions
+function tagsTemplate(tags) {
+    return tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+}
+
+function ratingTemplate(rating) {
+    let html = `<span class="rating" role="img" aria-label="Rating: ${rating} out of 5 stars">`;
+    for (let i = 1; i <= 5; i++) {
+        html += i <= rating
+            ? `<span aria-hidden="true" class="icon-star">⭐</span>`
+            : `<span aria-hidden="true" class="icon-star-empty">☆</span>`;
     }
+    html += `</span>`;
+    return html;
+}
 
-    // Initial display of all recipes
-    displayRecipes(recipes);
+function recipeTemplate(recipe) {
+    return `
+        <div class="recipe-card">
+            <img src="${recipe.image}" alt="${recipe.name} image">
+            <div class="content">
+                <div class="tags">${tagsTemplate(recipe.tags)}</div>
+                <h2>${recipe.name}</h2>
+                ${ratingTemplate(recipe.rating)}
+                <p>${recipe.description}</p>
+            </div>
+        </div>
+    `;
+}
 
-    // Search functionality
-    searchInput.addEventListener('input', () => {
-        const query = searchInput.value.toLowerCase();
-        const filteredRecipes = recipes.filter(recipe =>
-            recipe.name.toLowerCase().includes(query) ||
-            recipe.tags.some(tag => tag.toLowerCase().includes(query))
-        );
-        displayRecipes(filteredRecipes);
+// Render Functions
+function renderRecipes(recipeList) {
+    const recipeContainer = document.getElementById('recipeContainer');
+    const html = recipeList.map(recipe => recipeTemplate(recipe)).join('');
+    recipeContainer.innerHTML = html;
+}
+
+function init() {
+    const randomRecipe = getRandomListEntry(recipes);
+    renderRecipes([randomRecipe]);
+}
+
+// Filter Functions
+function filterRecipes(query) {
+    const filtered = recipes.filter(recipe => {
+        const nameMatch = recipe.name.toLowerCase().includes(query);
+        const descMatch = recipe.description.toLowerCase().includes(query);
+        const tagsMatch = recipe.tags.some(tag => tag.toLowerCase().includes(query));
+        // Add ingredients if you expand the recipes array later
+        const ingredMatch = recipe.ingredients ? recipe.ingredients.some(ing => ing.toLowerCase().includes(query)) : false;
+        return nameMatch || descMatch || tagsMatch || ingredMatch;
     });
+    return filtered.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function searchHandler(e) {
+    e.preventDefault(); // Not strictly needed without a form, but included for safety
+    const query = document.getElementById('search').value.toLowerCase();
+    const filteredRecipes = query ? filterRecipes(query) : recipes; // Show all if query is empty
+    renderRecipes(filteredRecipes);
+}
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+    document.getElementById('searchButton').addEventListener('click', searchHandler);
 });
