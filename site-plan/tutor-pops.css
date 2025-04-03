@@ -313,10 +313,6 @@ nav.active #nav-links {
     width: 700px;
   }
 
-  #bio-home-card, #chem-home-card {
-    
-  }
-
   footer {
     flex-direction: none;
     display: flex;
