@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   nav a {
     padding:1em;
-    min-width: 120px;
+    min-width: 220px;
     text-decoration: none;
     padding: 10px;
   
@@ -109,6 +109,7 @@ body {
   }
 
 header{
+  width: 1200px;
     height: 450px;
     display: flex;
     align-items: center;
@@ -124,10 +125,10 @@ header{
   }
 
   a #logo {
-    width: 100%;
-
+    width: 250px;
+    border: solid #718787d0;
   }
-  
+
   .home-card{
     display: flex;
   }
@@ -232,3 +233,106 @@ h5{
 h6{
     font-size: 1.7em;
 }
+
+/* Mobile Menu */
+#menu-toggle {
+  display: none;
+  font-size: 2em;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+  }
+
+  #logo {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 73px;
+  }
+
+  nav {
+      flex-direction: column;
+      width: 100%;
+      background-color: none;
+  }
+  nav {
+    background-color: transparent;
+    line-height: 2em;
+    text-align: center;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+  }
+  nav a {
+    padding:1em;
+    min-width: 0px;
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  #nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: none;
+  }
+
+  #nav-links a {
+      padding: 15px;
+      display: block;
+  }
+
+  #menu-toggle {
+      display: block;
+  }
+}
+
+/* Show menu when active */
+nav.active #nav-links {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+
+  body div{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  main {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .home-card {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+  }
+
+  #bio-home-card, #chem-home-card {
+      max-width: 90%;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+}
+
