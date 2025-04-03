@@ -127,6 +127,7 @@ header{
   a #logo {
     width: 250px;
     border: solid #718787d0;
+
   }
 
   .home-card{
@@ -235,14 +236,7 @@ h6{
 }
 
 /* Mobile Menu */
-#menu-toggle {
-  display: none;
-  font-size: 2em;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -300,39 +294,38 @@ nav.active #nav-links {
 
 @media (max-width: 768px) {
 
-  body div{
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  main {
-    display: block;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
 
   .home-card {
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
+      /* margin: 250px;
+      width: 700px; */
+  }
+
+  main {
+    flex-direction: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 250px;
+    width: 700px;
   }
 
   #bio-home-card, #chem-home-card {
-      max-width: 90%;
+    
   }
 
   footer {
+    flex-direction: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 100%;
+    margin: 380px
 }
 }
 
