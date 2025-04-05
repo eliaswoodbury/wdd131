@@ -99,6 +99,22 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--nav-hover-background-color);
   }  
 
+  #menu-btn {
+    /* font-size: 2rem; */
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    color: var(--paragraph-color-on-white);
+    font-size: 20px;
+  }
+  
+
+  #nav-links ul a {
+    font-weight: bold;
+  }
+  
+
 body {
     max-width: 1200px;
     margin: 0 auto;
@@ -149,7 +165,7 @@ header{
    }
 
   #home-about-me {
-    margin: 70px 17% 0px 18%
+    margin: 70px 17% 0px 18%;
   }
 
   #home-about-me a img {
@@ -159,6 +175,7 @@ header{
     margin-right: 3px;
     border: 2px solid #134266;
     transition: transform .5s;
+    margin: 20px;
 }
 
 #home-about-me a img:hover {
@@ -180,6 +197,18 @@ header{
   #calendar-img{
     max-width: 300px;
 }
+
+label {
+  font-weight: Bold;
+  color: black;
+}
+
+.schedule-button{
+  border-radius: 10px;
+  border: black;
+  margin: 10px;
+}
+
 
 footer{
     display: flex;
@@ -253,8 +282,8 @@ h6{
   nav {
       flex-direction: column;
       width: 100%;
-      background-color: none;
   }
+
   nav {
     background-color: transparent;
     line-height: 2em;
@@ -274,7 +303,6 @@ h6{
       display: none;
       flex-direction: column;
       width: 100%;
-      background-color: none;
   }
 
   #nav-links a {
@@ -305,7 +333,6 @@ nav.active #nav-links {
   }
 
   main {
-    flex-direction: none;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -314,7 +341,6 @@ nav.active #nav-links {
   }
 
   footer {
-    flex-direction: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -324,4 +350,6 @@ nav.active #nav-links {
     /* margin: 260px */
 }
 }
+
+
 

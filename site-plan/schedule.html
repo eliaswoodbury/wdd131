@@ -1,91 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutor Pops</title>
-    <meta name="description" content="Tutor Pops by Elias Woodbury offers free tutoring resources in Biology and Chemistry for students at BYU-Idaho. Schedule an appointment today and get help with your studies, all in a fun and supportive environment.">
-    <meta name="author" content="Elias Woodbury">
-    <link rel="stylesheet" href="tutor-pops.css">
-    <script src="schedule.js" defer></script>
-    <link rel="preload" href="images/tutorpopslogo.webp" as="image">
-    <link rel="preload" href="images/dna.webp" as="image">
-    <link rel="preload" href="images/chem.webp" as="image">
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Lato&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutor Pops</title>
+  <meta name="description" content="Tutor Pops by Elias Woodbury offers free tutoring resources in Biology and Chemistry for students at BYU-Idaho. Schedule an appointment today and get help with your studies, all in a fun and supportive environment.">
+  <meta name="author" content="Elias Woodbury">
+  <link rel="stylesheet" href="tutor-pops.css">
+  <script src="schedule.js" defer></script>
+  <link rel="preload" href="images/tutorpopslogo.webp" as="image">
+  <link rel="preload" href="images/dna.webp" as="image">
+  <link rel="preload" href="images/chem.webp" as="image">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC%7CLato&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 </head>
 <body>
-    <header>
-        <a href="tutor-pops.html">
-        <img id="logo" src="images/tutorpopslogo.webp" alt="Tutor Pops Logo">
+  <header>
+    <a href="tutor-pops.html">
+      <img id="logo" src="images/tutorpopslogo.webp" alt="Tutor Pops Logo">
+    </a>
+    <nav id="nav-right">
+      <a href="chemistry.html">Chemistry</a>
+      <a href="biology.html">Biology</a>
+      <a href="schedule.html">Schedule Appointment</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
+  <main>
+    <p></p>
+    <div>
+      <div id="contactus">
+        <div id="feedback"></div>
+        <form action="/database" method="post">
+          <div>
+            <div>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="user_name" />
+            </div>
+            <p></p>
+            <div>
+              <label for="mail">Email:</label>
+              <input type="email" id="mail" name="user_email" />
+            </div>
+            <p></p>
+            <div>
+              <label for="msg">Time/Date:</label>
+              <textarea id="msg" name="user_message"></textarea>
+            </div>
+            <p></p>
+            <div class="schedule-button">
+              <button type="submit">Send your message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="home-card">
+        <section id="bio-home-card">
+          <a href="biology.html">
+            <img src="images/dna.webp" alt="Image of Blue and Pink DNA Model">
+          </a>
+          <h6>Biology</h6>
+        </section>
+        <section id="chem-home-card">
+          <a href="chemistry.html">
+            <img src="images/chem.webp" alt="Image of Glass Burettes and Beakers">
+          </a>
+          <h6>Chemistry</h6>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <h5>Tutor Pops &copy; 2024 - Elias Woodbury</h5>
+      <h5><a class="button-box" href="site-plan-tutor-pops.html">Site Plan</a></h5>
+      <h5><a class="button-box" href="schedule.html">Schedule</a></h5>
+      <div class="social">
+        <a href="https://facebook.com">
+          <img src="images/facebook.webp" alt="fb icon">
         </a>
-        <nav id="nav-right">
-                <a href="chemistry.html">Chemistry</a>
-                <a href="biology.html">Biology</a>
-                <a href="schedule.html">Schedule Appointment</a>
-                <a href="faq.html">FAQ</a>
-        <nav>
-    </header>
-    <main>
-        <div id="contactus">
-            <div id="feedback"></div>
-            <form action="/database" method="post">
-                <ul>
-                <li>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="user_name" />
-                </li>
-                <li>
-                    <label for="mail">Email:</label>
-                    <input type="email" id="mail" name="user_email" />
-                </li>
-                <li>
-                    <label for="msg">Time/Date:</label>
-                    <textarea id="msg" name="user_message"></textarea>
-                </li>
-                <li class="button">
-                    <button type="submit">Send your message</button>
-                </li>                      
-                </ul>
-            </form>
-        </div>
-        <div class="home-card">
-            <section id="bio-home-card">
-                <a href="biology.html"><img src="images/dna.webp" alt="Image of Blue and Pink DNA Model"></a>
-                <h6>Biology</h6>
-            </section>
-            <section id="chem-home-card">
-                <a href="chemistry.html"><img src="images/chem.webp" alt="Image of Glass Buretes and Beakers"></a>
-                <h6>Chemistry</h6>
-            </section>
-        <div>
-        <!-- <div class="Calender">
-                <section>
-                    <a href="https://www.byui.edu/student-guide/tutoring-center">
-                        <p>Tutoring Center</p>
-                    </a>
-                </section>
-                <section id="calendar">
-                    <h6>Schedule</h6>
-                    <img id="calendar-img" src="images/chem2.webp" alt="Replacement Photo For Calender">
-                </section>
-            </div> -->
-    </main>
-    <footer>
-        <div class="footer">
-            <h5>Tutor Pops &copy; 2024 - Elias Woodbury</h5>
-            <h5><a class="button-box" href="site-plan-tutor-pops.html">Site Plan</a></h5>
-            <h5><a class="button-box" href="schedule.html">Schedule</a></h5>  
-            <div class="social">
-                <a href="https://facebook.com">
-                    <img src="images/facebook.webp" alt="fb icon">
-                </a>
-                <a href="https://twitter.com">
-                    <img src="images/twitter.webp" alt="twitter icon">
-                </a>
-                <a href="https://instagram.com">
-                    <img src="images/instagram.webp" alt="instagram icon">
-                </a>
-        </div>
-    </footer>
+        <a href="https://twitter.com">
+          <img src="images/twitter.webp" alt="twitter icon">
+        </a>
+        <a href="https://instagram.com">
+          <img src="images/instagram.webp" alt="instagram icon">
+        </a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

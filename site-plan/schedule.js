@@ -27,3 +27,21 @@
             feedbackElement.style.display = 'block';
             document.body.classList.toggle('moveDown');
         });
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            // Style for form elements
+            const form = document.querySelector("form");
+            form.style.padding = "40px";
+            form.style.backgroundColor = "#eeafaf"; // White background
+            form.style.paddingTop = "20px";
+
+            // Style for inputs inside the form
+            const inputs = form.querySelectorAll("input[type='text']");
+            inputs.forEach(input => {
+                input.style.padding = "10px";
+                input.style.marginBottom = "10px";
+                input.style.borderRadius = "5px"; // Curved borders on input fields
+            });
+        });
+        

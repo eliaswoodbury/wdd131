@@ -6,24 +6,28 @@
     <title>Tutor Pops</title>
     <meta name="description" content="Tutor Pops by Elias Woodbury offers free tutoring resources in Biology and Chemistry for students at BYU-Idaho. Schedule an appointment today and get help with your studies, all in a fun and supportive environment.">
     <meta name="author" content="Elias Woodbury">
+    <script src="tutor-pops.js" defer></script>
     <link rel="stylesheet" href="tutor-pops.css">
     <link rel="preload" href="images/tutorpopslogo.webp" as="image">
     <link rel="preload" href="images/dna.webp" as="image">
     <link rel="preload" href="images/chem.webp" as="image">
     <link rel="preload" href="images/chem2.webp" as="image">
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Lato&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC.Lato&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 </head>
 <body>
     <header>
         <a href="tutor-pops.html">
             <img id="logo" src="images/tutorpopslogo.webp" alt="Tutor Pops Logo">
         </a>
-    <nav id="nav-right">
-            <a href="chemistry.html">Chemistry</a>
-            <a href="biology.html">Biology</a>
-            <a href="schedule.html">Schedule Appointment</a>
-            <a href="faq.html">FAQ</a>
-    </nav>
+        <nav id="nav">
+            <button id="menu-btn">&#9776;</button> <!-- Hamburger Icon -->
+            <div id="nav-links">
+              <a href="chemistry.html">Chemistry</a>
+              <a href="biology.html">Biology</a>
+              <a href="schedule.html">Schedule Appointment</a>
+              <a href="faq.html">FAQ</a>
+            </div>
+          </nav>
     </header>
     <main>
         <div class="home-card">
@@ -57,15 +61,15 @@
             </article>
         </div> -->
         <div class="Calender">
-            <section>
+            <div>
                 <a href="https://www.byui.edu/student-guide/tutoring-center">
                     <p>Tutoring Center</p>
                 </a>
-            </section>
-            <section id="calendar">
+            </div>
+            <div id="calendar">
                 <h6>Schedule</h6>
                 <img id="calendar-img" src="images/chem2.webp" alt="Replacement Photo For Calender">
-            </section>
+            </div>
         </div>
     </main>
     <footer>
@@ -83,6 +87,7 @@
                 <a href="https://instagram.com">
                     <img src="images/instagram.webp" alt="instagram icon">
                 </a>
+            </div>
         </div>
     </footer>
 </body>
