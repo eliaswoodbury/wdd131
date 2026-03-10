@@ -6,7 +6,7 @@
     <title>Tutor Pops</title>
     <meta name="description" content="Tutor Pops by Elias Woodbury offers free tutoring resources in Biology and Chemistry for students at BYU-Idaho. Schedule an appointment today and get help with your studies, all in a fun and supportive environment.">
     <meta name="author" content="Elias Woodbury">
-    <script src="tutor-pops.js" defer></script>
+    <!-- <script src="tutor-pops.js" defer></script> -->
     <link rel="stylesheet" href="tutor-pops.css">
     <link rel="preload" href="images/tutorpopslogo.webp" as="image">
     <link rel="preload" href="images/dna.webp" as="image">
@@ -16,19 +16,30 @@
 </head>
 <body>
     <header>
+    <a href="tutor-pops.html" id="logo">
+      <img id="logo" src="images/tutorpopslogo.webp" alt="Tutor Pops Logo">
+    </a>
+    <nav id="nav-right">
+      <a href="chemistry.html">Chemistry/Physics</a>
+      <a href="biology.html">Biology</a>
+      <a href="schedule.html">Schedule Appointment</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
+    <!-- <header>
         <a href="tutor-pops.html">
             <img id="logo" src="images/tutorpopslogo.webp" alt="Tutor Pops Logo">
         </a>
         <nav id="nav">
-            <button id="menu-btn">&#9776;</button> <!-- Hamburger Icon -->
+            <button id="menu-btn">&#9776;</button>
             <div id="nav-links">
-              <a href="chemistry.html">Chemistry</a>
+              <a href="chemistry.html">Chemistry/Physics</a>
               <a href="biology.html">Biology</a>
               <a href="schedule.html">Schedule Appointment</a>
               <a href="faq.html">FAQ</a>
             </div>
           </nav>
-    </header>
+    </header> -->
     <main>
         <div class="home-card">
             <section id="bio-home-card">
@@ -37,11 +48,11 @@
             </section>
             <section id="chem-home-card">
                 <a href="chemistry.html"><img src="images/chem.webp" alt="Image of Glass Buretes and Beakers"></a>
-                <h6>Chemistry</h6>
+                <h6>Chemistry/Physics</h6>
             </section>
         </div>
-        <!-- <div id="home-about-me">
-            <a href="about-me.html">
+        <div id="home-about-me">
+            <a href="faq.html">
                 <img src="images/tutorphoto.webp" alt="Elias Woodbury AKA Tutor Pops tutoring">
             </a>
             <article>
@@ -59,7 +70,7 @@
                     If you need help or find someone in need of help, schedule a tutoring appointment through BYUI in the link below. And don't forget to tell 'em you learned it from Ya Pops!
                 </p>
             </article>
-        </div> -->
+        </div>
         <div class="Calender">
             <div>
                 <a href="https://www.byui.edu/student-guide/tutoring-center">
@@ -72,23 +83,22 @@
             </div>
         </div>
     </main>
+
     <footer>
-        <div class="footer">
-            <h5>Tutor Pops &copy; 2024 - Elias Woodbury</h5>
-            <h5><a class="button-box" href="site-plan.html">Site Plan</a></h5>
-            <h5><a class="button-box" href="schedule.html">Schedule</a></h5>  
-            <div class="social">
-                <a href="https://facebook.com">
-                    <img src="images/facebook.webp" alt="fb icon">
-                </a>
-                <a href="https://twitter.com">
-                    <img src="images/twitter.webp" alt="twitter icon">
-                </a>
-                <a href="https://instagram.com">
-                    <img src="images/instagram.webp" alt="instagram icon">
-                </a>
-            </div>
-        </div>
-    </footer>
+    <h5>Tutor Pops &copy; 2024 - Elias Woodbury</h5>
+    <h5><a class="button-box" href="site-plan-tutor-pops.html">Site Plan</a></h5>
+    <h5><a class="button-box" href="schedule.html">Schedule</a></h5>
+    <div class="social">
+      <a href="https://facebook.com">
+        <img src="images/facebook.webp" alt="Facebook icon">
+      </a>
+      <a href="https://twitter.com">
+        <img src="images/twitter.webp" alt="Twitter icon">
+      </a>
+      <a href="https://instagram.com">
+        <img src="images/instagram.webp" alt="Instagram icon">
+      </a>
+    </div>
+  </footer>
 </body>
 </html>

@@ -36,6 +36,12 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--headline-color-on-color);
   }
   
+  header {
+    border-radius: 5px;
+  }
+
+
+
   p {
     font-family: var(--paragraph-font);
     color: var(--paragraph-color-on-white);
@@ -89,11 +95,12 @@ h1, h2, h3, h4, h5, h6 {
     min-width: 220px;
     text-decoration: none;
     padding: 10px;
-  
   }
+  
   nav a:link, nav a:visited {
     color: var(--nav-link-color);
   }
+
   nav a:hover {
     color: var(--nav-hover-link-color);
     background-color: var(--nav-hover-background-color);
@@ -102,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
   #menu-btn {
     /* font-size: 2rem; */
     background: none;
-    border: none;
+    border-radius: 5px;
     cursor: pointer;
     display: none;
     color: var(--paragraph-color-on-white);
@@ -143,7 +150,12 @@ header{
   a #logo {
     width: 250px;
     border: solid #718787d0;
+    border-radius: 8px;
+    transition: transform .5s;
+  }
 
+  #logo :hover {
+    transform: scale(1.1);
   }
 
   .home-card{
@@ -180,7 +192,7 @@ header{
 
 #home-about-me a img:hover {
         opacity: .6;
-        transform: scale(1.01);
+        transform: scale(1.05);
      }
   
   #home-about-me h2 {
@@ -194,8 +206,64 @@ header{
     margin-bottom: 15px;
   }
 
+
+.subject-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px; 
+}
+
+#subjects a:link, #subjects a:visited {
+    color: var(--accent2-color);
+    text-align: center;
+    font-size: 1.7em;
+    margin-bottom: 1.3em;
+    display: block; 
+    font-weight: bold;
+    text-decoration: none;
+    background-color: var(--paragraph-color-on-white);
+    line-height: 2.7em;
+    max-width: 13em;
+    border-radius: 5px;
+  }
+
+#subjects a:hover {
+    color: var(--paragraph-color-on-white);
+    background-color: var(--nav-hover-background-color);
+    border-radius: 5px;
+    border: solid #734848;
+}
+
+.doc-vid-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px; 
+}
+
+#doc-vid a:link, #doc-vid a:visited {
+    color: var(--accent2-color);
+    text-align: center;
+    font-size: 1.7em;
+    margin-bottom: 1.3em;
+    display: block; 
+    font-weight: bold;
+    text-decoration: none;
+    background-color: var(--paragraph-color-on-white);
+    line-height: 2.7em;
+    max-width: 13em;
+    border-radius: 5px;
+  }
+
+#doc-vid a:hover {
+    color: var(--paragraph-color-on-white);
+    background-color: var(--nav-hover-background-color);
+    border-radius: 5px;
+    border: solid #734848;
+} 
+
   #calendar-img{
     max-width: 300px;
+    border-radius: 7px;
 }
 
 label {
@@ -209,6 +277,96 @@ label {
   margin: 10px;
 }
 
+/* --- Form & Feedback Styling --- */
+
+form {
+    background-color: var(--accent1-color);
+    padding: 40px;
+    /* This ensures it matches the header's 100% width within the 1200px body */
+    width: 100%; 
+    max-width: 1100px; 
+    margin: 20px auto;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* This makes sure padding doesn't push the form wider than the page */
+    box-sizing: border-box; 
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+/* Ensure labels and inputs look professional */
+label {
+    font-family: var(--paragraph-font);
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* This styles all three fields: Name, Email, and the Message box */
+input[type="text"], 
+input[type="email"], 
+textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: white; /* Ensures they are white like your textarea */
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    font-family: var(--paragraph-font);
+    box-sizing: border-box;
+}
+
+.schedule-button {
+    align-self: center; /* Centers the button */
+    min-width: 250px;   /* Gives it a nice solid size */
+    background-color: var(--secondary-color);
+    color: white;       /* Added back for visibility */
+    padding: 15px;      /* Added back for height */
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-family: var(--paragraph-font);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.schedule-button:hover {
+    background-color: var(--primary-color);
+}
+
+/* Feedback Message Styling */
+#feedback {
+    display: none;
+    width: 100%; 
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 5px;
+    /* Use your specific paragraph variable */
+    font-family: var(--paragraph-font);
+    font-size: 18px; 
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.success { 
+    background-color: #d4edda; 
+    color: #155724; 
+    border: 1px solid #c3e6cb; 
+}
+
+.error { 
+    background-color: #f8d7da; 
+    color: #721c24; 
+    border: 1px solid #f5c6cb; 
+}
+
 
 footer{
     display: flex;
@@ -220,6 +378,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
 
 
@@ -250,6 +409,16 @@ footer .button-box:hover{
     color: #718787d0;
 }
 
+.social {
+  background-color: #734848;
+  color: #734848;
+  transition: transform .5s;
+}
+
+.social :hover{
+  transform: scale(1.10);
+}
+
 h5:visited, h5:link{
     text-decoration: none;
     color: #f1eee7;
@@ -276,6 +445,7 @@ h6{
   #logo {
       width: 200px;
       height: 200px;
+      margin-right: 50px;
       margin-bottom: 73px;
   }
 
@@ -313,6 +483,21 @@ h6{
   #menu-toggle {
       display: block;
   }
+
+
+#doc-vid a:link, #doc-vid a:visited {
+    font-size: 1.5em;
+    margin-bottom: 1.3em;
+    line-height: 2.6em;
+    max-width: 13em;
+  }
+
+#subjects a:link, #subjects a:visited {
+    font-size: 1.5em;
+    margin-bottom: 1.3em;
+    line-height: 2.6em;
+    max-width: 13em;
+  }
 }
 
 /* Show menu when active */
@@ -349,7 +534,66 @@ nav.active #nav-links {
     width: 100%;
     /* margin: 260px */
 }
+
+#doc-vid a:link, #doc-vid a:visited {
+    font-size: 1.3em;
+    margin-bottom: .5em;
+    line-height: 2.6em;
+    max-width: 13em;
+    padding-bottom: .2em;
+  }
+
+  footer .button-box {
+    line-height: 1.5em;
+    display: flex;
+    min-width: 900px;
+    padding: 16px;
+    margin: 7px 10px 7px 10px;
+    color: #f1eee7;
 }
 
+footer .button-box:hover{
+    line-height: 1.5em;
+    text-align: center;
+    /* font-size: 1.2em; */
+    justify-content: center;
+    min-width: 900px;
+    text-decoration: none;
+    padding: 16px;
+    margin: 7px 10px 7px 10px;
+    color: #718787d0;
+}
 
+}
 
+@media (max-width: 770px) {
+  .doc-vid-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 0px;
+    max-width: none;
+  }
+
+  #doc-vid a:link, #doc-vid a:visited {
+    font-size: .9em;
+    margin-bottom: .5em;
+    line-height: 1.2em;
+    padding: 1.5em 20em 1.3em 20em;
+    margin: 0 auto;
+  }
+
+  .subject-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 7px;
+    max-width: none;
+  }
+
+  #subjects a:link, #subjects a:visited {
+    font-size: .9em;
+    margin-bottom: .5em;
+    line-height: 1.2em;
+    padding: 1.5em 16em 1.3em 16em;
+    margin: 0 auto;
+  }
+}
