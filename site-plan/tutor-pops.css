@@ -366,6 +366,11 @@ label {
     color: var(--secondary-color);
 }
 
+#schedule-appointment {
+    margin-top: 50px;
+
+}
+
 /* This styles all three fields: Name, Email, and the Message box */
 input[type="text"], 
 input[type="email"], 
