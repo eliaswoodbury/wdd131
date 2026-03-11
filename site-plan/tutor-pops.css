@@ -40,8 +40,6 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 5px;
   }
 
-
-
   p {
     font-family: var(--paragraph-font);
     color: var(--paragraph-color-on-white);
@@ -82,20 +80,32 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--paragraph-color-on-color);
   }
   
-  nav {
-    background-color: var(--nav-background-color);
-    line-height: 3em;
-    text-align: center;
-    font-size: 1.2em;
-    display: flex;
-    justify-content: center;
-  }
-  nav a {
-    padding:1em;
-    min-width: 220px;
-    text-decoration: none;
-    padding: 10px;
-  }
+nav {
+  background-color: var(--nav-background-color);
+  text-align: center;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  /* Removed align-items: center; */
+  height: 90px;
+  padding-right: 20px;
+}
+
+nav a, .dropbtn {
+  /* This ensures the link fills the full height of the nav */
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  padding: 0 20px; /* Adjust horizontal padding as needed */
+  min-width: 220px;
+  text-decoration: none;
+  height: 100%; /* Forces the anchor to be 90px tall */
+  box-sizing: border-box;
+}
+
+.dropbtn, nav {
+  line-height: normal; 
+}
   
   nav a:link, nav a:visited {
     color: var(--nav-link-color);
@@ -105,6 +115,54 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--nav-hover-link-color);
     background-color: var(--nav-hover-background-color);
   }  
+
+  /* Dropdown styles */
+  .dropdown {
+    position: relative;    
+    display: flex;
+  }
+
+  .dropbtn {
+    background-color: var(--nav-background-color);
+    line-height: 3em;
+    text-align: center;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dropbtn:hover {
+    background-color: var(--nav-hover-background-color);
+    color: var(--nav-hover-link-color);
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--nav-background-color);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    z-index: 10;
+    top: 100%;
+  }
+
+  .dropdown-content a {
+    color: var(--paragraph-color-on-white);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1em;
+  }
+
+  .dropdown-content a:hover {
+    background-color: var(--nav-hover-background-color);
+    color: var(--nav-hover-link-color);
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
   #menu-btn {
     /* font-size: 2rem; */
@@ -462,6 +520,7 @@ h6{
     display: flex;
     justify-content: center;
   }
+
   nav a {
     padding:1em;
     min-width: 0px;
@@ -478,6 +537,53 @@ h6{
   #nav-links a {
       padding: 15px;
       display: block;
+  }
+
+  .dropdown {
+    position: relative;    
+    display: block;
+  }
+
+  .dropbtn {
+    background-color: transparent;
+    line-height: 3em;
+    text-align: center;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dropbtn:hover {
+    background-color: var(--nav-hover-background-color);
+    color: var(--nav-hover-link-color);
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--nav-background-color);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    z-index: 10;
+    top: 100%;
+  }
+
+  .dropdown-content a {
+    color: var(--paragraph-color-on-white);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1em;
+  }
+
+  .dropdown-content a:hover {
+    background-color: var(--nav-hover-background-color);
+    color: var(--nav-hover-link-color);
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
   }
 
   #menu-toggle {
