@@ -430,6 +430,99 @@ textarea {
     border: 1px solid #f5c6cb; 
 }
 
+/* --- Keep the container, grid, and initial card styles as you had them --- */
+.roadmap-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.roadmap-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.roadmap-card {
+    background-color: var(--paragraph-color-on-white);
+    color: #ffffff; /* Initial text color for unstyled elements */
+    padding: 30px;
+    border-radius: 12px;
+    flex: 1 1 350px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Added color to transition */
+}
+
+/* --- Keep your initial styling for child elements --- */
+.roadmap-card h3 {
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    padding-bottom: 15px;
+    margin-top: 0;
+    font-family: 'IM Fell French Canon SC', serif;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.roadmap-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.roadmap-card li {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.roadmap-card strong {
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.roadmap-card a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: #e0d4c3;
+    font-weight: 600;
+}
+
+/* Optional: change the underline color on standard link hover for contrast against unhovered text */
+.roadmap-card a:hover {
+    text-decoration-color: var(--paragraph-color-on-white); /* Example other color */
+}
+
+
+/* 1. Base card hover */
+.roadmap-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--headline-color-on-color);
+    border-radius: 5px;
+    border: solid #734848;
+}
+
+/* 2. Target ALL text elements inside when the card is hovered */
+.roadmap-card:hover h3, 
+.roadmap-card:hover li, 
+.roadmap-card:hover em, 
+.roadmap-card:hover strong, 
+.roadmap-card:hover a {
+    color: var(--paragraph-color-on-white) !important;
+}
+
+/* 3. Ensure the border under the title changes too */
+.roadmap-card:hover h3 {
+    border-bottom-color: rgba(115, 72, 72, 0.2); /* Adjust to a faint version of your brown */
+}
+
+/* 4. Keep links looking right when you hover specifically over them */
+.roadmap-card:hover a:hover {
+    text-decoration-color: var(--paragraph-color-on-white);
+}
 
 footer{
     display: flex;
